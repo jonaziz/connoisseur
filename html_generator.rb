@@ -12,6 +12,9 @@ class HtmlGenerator
     print_footer
   end
 
+  # below is only available to methods within class
+  private
+
   def print_header
     puts "<html>"
     puts "  <head>"
