@@ -1,3 +1,6 @@
+require "open-uri"
+require "json"
+
 # Create HTML outputs for show and index functions
 class HtmlGenerator
 
@@ -12,11 +15,21 @@ class HtmlGenerator
   def index
     print_header
     puts "    Action: index"
+
+    products = retrieve_data
+    products.each do |product|
+      display_product(product)
+    end
+
     print_footer
   end
 
   # below is only available to methods within class
   private
+
+  def display_product(product)
+    puts "    <p>#{product['name']}</p>"
+  end
 
   # opening HTML code
   def print_header
@@ -31,6 +44,14 @@ class HtmlGenerator
   def print_footer
     puts "  </body>"
     puts "</html>"
+  end
+
+  # retrieving data
+  def retrieve_data
+    response = open("http://lcboapi.com/products.json").read
+    data = JSON.parse(response)
+
+    return data["result"]
   end
 
 end
