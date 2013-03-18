@@ -10,4 +10,12 @@ if ARGV.empty? #there are no arguments provide
 	puts "USAGE: requires arguments"
 else
 	puts "Correctly used arguments"
+
+	if ARGV[0] == "index"
+		puts "Coming soon"
+	elsif ARGV[0] == "show"
+		puts "Coming soon"
+	else
+		puts "Unrecognized command"
+	end
 end
