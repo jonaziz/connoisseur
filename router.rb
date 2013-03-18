@@ -11,7 +11,6 @@ require_relative 'html_generator'
 if ARGV.empty? #there are no arguments provide
 	puts "USAGE: requires arguments"
 else
-	puts "Correctly used arguments"
   generator = HtmlGenerator.new
 
 	if ARGV[0] == "index"
