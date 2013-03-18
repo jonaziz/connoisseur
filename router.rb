@@ -4,6 +4,10 @@
 
 # How do we do this? Argument Vector (anything in ruby has access to this)
 # Functions like an array
-puts ARGV[0].inspect
-puts ARGV[1].inspect
-puts ARGV[2].inspect
+# If you fail to provide argument, it will printout help on what to do
+
+if ARGV.empty? #there are no arguments provide
+	puts "USAGE: requires arguments"
+else
+	puts "Correctly used arguments"
+end
