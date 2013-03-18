@@ -38,8 +38,8 @@ class HtmlGenerator
     puts "        <li>Producer: #{product['producer_name']}</li>"
     puts "        <li>Category: #{product['primary_category']}</li>"
     puts "        <li>Sub-category: #{product['secondary_category']}</li>"
-    puts "        <li>Volume Sold: #{product['package_unit_volume_in_mililiters']}</li>"
-    puts "        <li>Price: $#{(product['price_in_cents'].to_i/100)}</li>"
+    puts "        <li>Volume Sold: #{product['package_unit_volume_in_milliliters']} ml</li>"
+    puts "        <li>Price: $#{(product['price_in_cents'].to_i/100.0)}</li>"
     puts "      </ul>"
     puts "      <img src='#{product['image_thumb_url']}'>"
   end
