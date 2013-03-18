@@ -10,14 +10,24 @@ require_relative 'html_generator'
 
 if ARGV.empty? #there are no arguments provide
 	puts "USAGE: requires arguments"
+  puts "OPTIONS:"
+  puts "   index comand shows product list"
+  puts "   show command shows product by id"
+  puts "DISPLAY:"
+  puts "   put into file (ex. \"> index.html\") and"
+  puts "   launch the file to see the list."
+  puts "SAMPLE:"
+  puts "   ruby router.rb index > index.html"
 else
   generator = HtmlGenerator.new
 
 	if ARGV[0] == "index"
 		generator.index
 	elsif ARGV[0] == "show"
-		generator.show
+    id = ARGV[1]
+		generator.show(id)
 	else
 		puts "Unrecognized command. Please refer to USAGE"
+    puts "by entering the command \"ruby router.rb\""
 	end
 end
