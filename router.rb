@@ -1,3 +1,5 @@
+require_relative 'html_generator'
+
 # Access parameters passed into the app
 # On command-line, we can pass in parameters like with methods
 # See help documentation for each command
@@ -10,12 +12,13 @@ if ARGV.empty? #there are no arguments provide
 	puts "USAGE: requires arguments"
 else
 	puts "Correctly used arguments"
+  generator = HtmlGenerator.new
 
 	if ARGV[0] == "index"
-		puts "Coming soon"
+		generator.index
 	elsif ARGV[0] == "show"
-		puts "Coming soon"
+		generator.show
 	else
-		puts "Unrecognized command"
+		puts "Unrecognized command. Please refer to USAGE"
 	end
 end
