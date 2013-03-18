@@ -19,6 +19,7 @@ class HtmlGenerator
     products = retrieve_data
     products.each do |product|
       display_product(product)
+      display_product_info(product)
     end
 
     print_footer
@@ -28,7 +29,19 @@ class HtmlGenerator
   private
 
   def display_product(product)
-    puts "    <p>#{product['name']}</p>"
+    puts "      <h2>#{product['name']}</h2>"
+  end
+
+  def display_product_info(product)
+    puts "      <ul>"
+    puts "        <li>Product ID: #{product['id']}</li>"
+    puts "        <li>Producer: #{product['producer_name']}</li>"
+    puts "        <li>Category: #{product['primary_category']}</li>"
+    puts "        <li>Sub-category: #{product['secondary_category']}</li>"
+    puts "        <li>Volume Sold: #{product['package_unit_volume_in_mililiters']}</li>"
+    puts "        <li>Price: $#{(product['price_in_cents'].to_i/100)}</li>"
+    puts "      </ul>"
+    puts "      <img src='#{product['image_thumb_url']}'>"
   end
 
   # opening HTML code
@@ -38,7 +51,9 @@ class HtmlGenerator
     puts "    <title>Connoisseur</title>"
     puts "  </head>"
     puts "  <body>"
-   end
+    puts "    <h1>Product Listing</h1>"
+    puts "    <br />"
+  end
 
   # closing HTML code
   def print_footer
