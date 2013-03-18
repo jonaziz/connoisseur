@@ -14,7 +14,6 @@ class HtmlGenerator
   # outputting a listing of items
   def index
     print_header
-    puts "    Action: index"
 
     products = retrieve_data
     products.each do |product|
@@ -33,6 +32,7 @@ class HtmlGenerator
   end
 
   def display_product_info(product)
+    puts "      <img src='#{product['image_thumb_url']}'>"
     puts "      <ul>"
     puts "        <li>Product ID: #{product['id']}</li>"
     puts "        <li>Producer: #{product['producer_name']}</li>"
@@ -41,7 +41,6 @@ class HtmlGenerator
     puts "        <li>Volume Sold: #{product['package_unit_volume_in_milliliters']} ml</li>"
     puts "        <li>Price: $#{(product['price_in_cents'].to_i/100.0)}</li>"
     puts "      </ul>"
-    puts "      <img src='#{product['image_thumb_url']}'>"
   end
 
   # opening HTML code
